@@ -176,28 +176,60 @@ ul {
 .project-card {
   background: #f9fafc;
   border-radius: 12px;
-  padding: 20px;
   width: 280px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer; /* ensures it looks clickable */
 }
 
-.project-info {
-  display: none; /* hidden by default */
-  text-align: left;
-  margin-top: 10px;
-  transition: all 0.3s ease;
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
-
 
 .project-img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
+}
+
+.project-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.project-card:hover .project-info {
+  transform: translateY(0);
+}
+
+.project-info h3 {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  color: #ffdd00;
+}
+
+.project-info p {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+/* Responsive Projects */
+@media (max-width: 768px) {
+  .project-list {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* Contact Form */
